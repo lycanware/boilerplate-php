@@ -1,0 +1,12 @@
+body > div {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 20%;
+    padding: 50px;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
+
+h1 {
+    color: #2c7ce6;
+}
