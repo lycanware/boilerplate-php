@@ -1,0 +1,38 @@
+Options -Indexes
+
+Options +FollowSymlinks
+RewriteEngine On
+
+# Add trailing slash
+RewriteCond %{REQUEST_URI} /+[^\.]+$
+RewriteRule ^(.+[^/])$ %{REQUEST_URI}/ [R=302,L]
+
+# If file and directory don't exist, send to index for routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/?q=$1 [QSA,L]
+
+# HSTS - preload to work with hstspreload.appspot.com
+Header set Strict-Transport-Security "max-age=63072000; includesSubDomains; preload"
+
+# Extra Security - sameorigin to prevent display in iframe
+Header set X-Frame-Options "sameorigin"
+Header set X-XSS-Protection "1; mode=block"
+Header set X-Content-Type-Options "nosniff"
+
+# Other example headers for future reference
+#Header set Access-Control-Allow-Origin "http://127.0.0.1:8080"
+#Header set Access-Control-Allow-Methods "GET, POST, DELETE, PUT"
+#Header set Access-Control-Allow-Headers "X-Requested-With, Content-Type, Authorization, Origin, Accept"
+#Header set Access-Control-Allow-Credentials "true"
+
+# No caching by proxies and clients
+#Header unset ETag
+#Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+#Header set Pragma "no-cache"
+#Header set Expires "Wed, 11 Jan 1928 05:00:00 GMT"
+
+# Limit access to IP address
+#order deny,allow
+#deny from all
+#allow from <IP_ADDRESS>
