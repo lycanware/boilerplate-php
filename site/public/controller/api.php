@@ -9,6 +9,7 @@ if (isset($name)) {
 
     header('Content-Type: application/json', true, 200);
     echo json_encode($result);
+    
 } else {
     $result = array(
         "status" => "Error",
