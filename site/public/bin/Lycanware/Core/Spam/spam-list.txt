@@ -1,0 +1,2 @@
+# Update this file using this list https://github.com/ddofborg/analytics-ghost-spam-list
+example.com
