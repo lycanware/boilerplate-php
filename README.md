@@ -12,7 +12,7 @@ You should now have a fully functioning barebones site and router, ready for dev
 
 Examples of how to use the boilerplate for different situations are included in the `router.php` file and `controller` and `view` directories.
 
-## Features / Supports
+## Features
 
 - Router
 - Server rendering
